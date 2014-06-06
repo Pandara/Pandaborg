@@ -267,21 +267,21 @@ class ircInterface:
 
     elif action[0].find("SENDMSG") != -1:
       if len(action) > 2:
-        self.sendmsg(action[1],joinArgForSend(action[2:]))
+        self.sendmsg(action[1],self.joinArgForSend(action[2:]))
         responce = "Message sent!"
       else:
         responce = "Not enough arguments. SENDMSG [target] [message]"
 
     elif action[0].find("SENDALL") != -1:
       if len(action) > 1:
-        self.sendmsgall(joinArgForSend(action[1:]))
+        self.sendmsgall(self.joinArgForSend(action[1:]))
         responce = "Sent message to all connected channels!"
       else:
         responce = "Not enough arguments. SENDALL [message]"
 
     elif action[0].find("SENDACTION") != -1:
       if len(action) > 2:
-        self.sendaction(action[1],joinArgForSend(action[2:]))
+        self.sendaction(action[1],self.joinArgForSend(action[2:]))
         responce = "Sent action to channel!"
       else:
         responce = "Not enough arguments. SENDACTION [target] [message]"
